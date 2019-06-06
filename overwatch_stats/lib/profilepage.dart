@@ -11,13 +11,15 @@ class ProfilePage extends MaterialPageRoute<Null> {
               backgroundColor: Theme.of(context).canvasColor,
               title: Text('$_battleTag'.split('-')[0]),
             ),
-            body: Center(
+            body: SafeArea(
+              child: Center(
               child: RaisedButton(
                 child: Text('Welcome $_battleTag'),
                 onPressed: () {
                   print("Page 2 Button Pressed");
                 },
               ),
+            ),
             ),
           );
         });

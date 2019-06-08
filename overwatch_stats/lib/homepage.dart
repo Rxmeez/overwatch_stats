@@ -68,11 +68,13 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: Text('SUBMIT'),
                   color: Colors.orangeAccent,
                   onPressed: () {
+                    var route = new MaterialPageRoute(builder: (BuildContext context) => ProfilePage(region: _region.text, battleTag: _battleTag.text),
+                    );
                     print('Submit Button');
                     print(_region.text);
                     print(_battleTag.text);
                     Navigator.push(
-                      context, ProfilePage(_region.text, _battleTag.text));
+                      context, route);
                   },
                 ),
               ],

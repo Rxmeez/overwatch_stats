@@ -42,6 +42,18 @@ flutter:
   uses-material-design: true
   assets:
     - assets/images/overwatch_logo.png
+    - assets/images/overwatch_kings_row.png
+    - assets/images/overwatch_gibraltar.png
+    - assets/images/overwatch_gibraltar_blur.png
+  
+  fonts:
+    - family: BigNoodleToo
+      fonts:
+        - asset: assets/fonts/bignoodletoo.ttf
+    - family: KOverwatch
+      fonts: 
+        - asset: assets/fonts/koverwatch.ttf
+
 
   # To add assets to your application, add an assets section, like this:
   # assets:

@@ -39,19 +39,89 @@ class _ProfilePageState extends State<ProfilePage> {
 
   @override
   Widget build(BuildContext context) {
+    while (data == null) {
+      return Center(
+        child: CircularProgressIndicator(),
+      );
+    }
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).canvasColor,
-        title: Text('${widget.battleTag}'.split('-')[0]),
+        title: Image.asset('assets/images/overwatch_logo.png',
+            height: 50.0, width: 50.0),
+        centerTitle: true,
       ),
-      body: SafeArea(
-        child: Center(child: ListView(padding: EdgeInsets.all(16.0),
-        children: <Widget>[
-          Image.network('${data["ratingIcon"]}',height: 200.0, width: 200.0),
-          SizedBox(height: 100.0),
-          Center(child: Text("${data["name"]} your rank : ${data["rating"]}"))
-        ],),
-      ),)
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage("assets/images/overwatch_gibraltar_blur.png"),
+              fit: BoxFit.none,
+              alignment: Alignment(0.5, -0.5)),
+        ),
+        child: SafeArea(
+          child: ListView(
+            children: <Widget>[
+              Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Image.network('${data["icon"]}', height: 200.0, width: 200.0),
+                  Text(
+                    '${data["name"]}'.split("#")[0],
+                    style: TextStyle(
+                      fontFamily: 'BigNoodleToo',
+                      fontSize: 50.0,
+                      color: Colors.white,
+                    ),
+                  ),
+                  Text(
+                    '${data["gamesWon"]} Games Won',
+                    style: TextStyle(
+                      fontFamily: 'KOverwatch',
+                      fontSize: 20.0,
+                      color: Colors.white70,
+                    ),
+                  ),
+                  SizedBox(height: 50.0),
+                  Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: <Widget>[
+                    Image.network('${data["levelIcon"]}', height: 100.0, width: 100.0),
+                    //Image.network('${data["endorsementIcon"]}', height: 50.0, width: 50.0),
+                    Image.network('${data["ratingIcon"]}', height: 100.0, width: 100.0),
+                  ],)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                  Center(
+                    child: Text(
+                      "${data["name"]} your rank : ${data["rating"]}",
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

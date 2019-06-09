@@ -64,12 +64,13 @@ class _ProfilePageState extends State<ProfilePage> {
               Column(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-                  Image.network('${data["icon"]}', height: 200.0, width: 200.0),
+                  SizedBox(height: 50.0),
+                  Image.network('${data["icon"]}'),
                   Text(
                     '${data["name"]}'.split("#")[0],
                     style: TextStyle(
                       fontFamily: 'BigNoodleToo',
-                      fontSize: 50.0,
+                      fontSize: 80.0,
                       color: Colors.white,
                     ),
                   ),
@@ -77,45 +78,63 @@ class _ProfilePageState extends State<ProfilePage> {
                     '${data["gamesWon"]} Games Won',
                     style: TextStyle(
                       fontFamily: 'KOverwatch',
-                      fontSize: 20.0,
+                      fontSize: 30.0,
                       color: Colors.white70,
                     ),
                   ),
                   SizedBox(height: 50.0),
-                  Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    Image.network('${data["levelIcon"]}', height: 100.0, width: 100.0),
-                    //Image.network('${data["endorsementIcon"]}', height: 50.0, width: 50.0),
-                    Image.network('${data["ratingIcon"]}', height: 100.0, width: 100.0),
-                  ],)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-                  Center(
-                    child: Text(
-                      "${data["name"]} your rank : ${data["rating"]}",
-                      style: TextStyle(
-                        color: Colors.white,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      Container(
+                        height: 150.0,
+                        width: 150.0,
+                        child: Stack(
+                          children: <Widget>[
+                            Container(
+                              alignment: Alignment.center,
+                              child: Image.network('${data["levelIcon"]}',
+                                  height: 150.0, width: 150.0),
+                            ),
+                            Container(
+                              alignment: Alignment.center,
+                              child: Text(
+                                '${data["level"]}',
+                                style: TextStyle(
+                                  fontFamily: 'KOverwatch',
+                                  color: Colors.white,
+                                  fontSize: 30.0,
+                                ),
+                              ),
+                            ),
+                            Container(
+                                alignment: Alignment.bottomCenter,
+                                child:
+                                    Image.network('${data["prestigeIcon"]}')),
+                          ],
+                        ),
                       ),
+                      Container(
+                        height: 100,
+                        child: VerticalDivider(color: Colors.white),
+                      ),
+                      Column(
+                        children: <Widget>[
+                          Image.network('${data["ratingIcon"]}',
+                              height: 150.0, width: 150.0),
+                        ],
+                      ),
+                    ],
+                  ),
+                  SizedBox(height: 50.0),
+                  Text(
+                    'Skill Rating ${data["rating"]} Points',
+                    style: TextStyle(
+                      fontFamily: 'KOverwatch',
+                      fontSize: 30.0,
+                      color: Colors.white,
                     ),
-                  )
+                  ),
                 ],
               ),
             ],

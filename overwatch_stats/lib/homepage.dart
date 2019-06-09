@@ -35,7 +35,6 @@ class _MyHomePageState extends State<MyHomePage> {
             // TODO: Change region to dropdown list or scroll select region (Map name to region code)
             TextField(
               controller: _region,
-              autofocus: true,
               autocorrect: false,
               decoration: InputDecoration(
                 labelText: 'region',
@@ -46,7 +45,6 @@ class _MyHomePageState extends State<MyHomePage> {
             // Battle tag name
             TextField(
               controller: _battleTag,
-              autofocus: true,
               autocorrect: false,
               decoration: InputDecoration(
                 labelText: 'Battle Tag',
